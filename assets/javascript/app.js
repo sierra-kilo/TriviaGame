@@ -5,9 +5,14 @@ var incorrectAnswers = null;
 var timeRemaining = 10;
 var questionList = [];
 
-function countdown() {
+function subOne() {
     timeRemaining--;
     console.log(timeRemaining)
 }
 
-setInterval(countdown, 1000);
+function countdown() {
+    var myVar = setInterval(subOne, 1000);
+    if (timeRemaining === 0) {
+        clearInterval(myVar);
+    }
+}
