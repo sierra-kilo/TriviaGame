@@ -8,11 +8,12 @@ var questionList = [];
 function subOne() {
     timeRemaining--;
     console.log(timeRemaining)
+    if (timeRemaining === 0) {
+        clearInterval(myVar);
+    }    
 }
 
 function countdown() {
     var myVar = setInterval(subOne, 1000);
-    if (timeRemaining === 0) {
-        clearInterval(myVar);
-    }
+
 }
