@@ -4,6 +4,7 @@ var incorrectAnswers = null;
 var timeRemaining = 10;
 var questionList = [];
 var myTimer;
+var currentQuestion;
 
 function subOne() {
     timeRemaining--;
@@ -17,7 +18,8 @@ function countdown() {
     myTimer = setInterval(subOne, 1000);
 }
 
-var question0 = {
+var question = {
+
     question: 'What is your name?',
 
     choice0: 'Jon',
@@ -26,11 +28,18 @@ var question0 = {
 
     correct: 'Shant',
 
-    logFunction: function () {
-        console.log(question0.question, question0.choice0, this.correct, this);
-        }
-    };
+    currentQuestion: function ([question, choice0, choice1, choice2, correct]) {
+    this.question = question;
+    this.choice0 = choice0;
+    this.choice1 = choice1;
+    this.choice2 = choice2;
+    this.correct = correct;
+    }
+};
 
-countdown();
-console.log(question0.correct);
-// question0.logFunction();
+// countdown();
+console.log(question.choice0);
+
+question.currentQuestion(['What is your dogs name? ', 'zoe', 'snickers', 'both', 'both']);
+
+console.log(question.choice0, question.correct);
