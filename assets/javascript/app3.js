@@ -25,6 +25,7 @@ $('.btn[name=start]').click(function() {
     $('.instructions').hide();
     // show questions and response options
     $('.questionaire').show();
+    renderQuestionaire();
     // show and start countdown
     $('.time-display').show();
     myTimer = setInterval(countdown, 100)
@@ -44,6 +45,18 @@ function countdown() {
 // dynamically create questions and choices and submit button
 
 
+// Initial list of questions in other file
+// Initial array of movies
+var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+
+// Function for displaying movie data
+function renderQuestionaire() {
+    for(var i = 0; i < questions.length; i++) {
+        var $questions = $("<div class='question'>");
+        $questions.html(questions[i].question);
+        $('.quesionaire-display').append($questions);
+      }
+}
 
 // wait for end of timer or submit button
 // remove question
