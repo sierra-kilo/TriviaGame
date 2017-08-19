@@ -3,15 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>Trivia Game</title>
+
+        <!-- reset css -->
         <link rel="stylesheet" href="assets/css/reset.css">
+
+        <!-- jquery -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <link rel="stylesheet"
 
+        <!-- bootstrap -->
+        <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- custom css -->
+        <link rel="stylesheet" href="assets/css/stylenew.css">
+
     </head>
     <body>
         <!-- heading -->
@@ -23,43 +30,57 @@
             </div>
         </div>
         <!-- main game content -->
-        <div class="row">
-            <div class="container-fluid">
-                <div class="jumbotron">
-                    <div class="col-md-12">
-                        <div class="time-display">
-                            <span>Time: </span>
-                            <span class="countdown">time placeholder</span>
+        <div class="main-game-content">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                        <div class="col-md-12">
+                            <!-- hide after game start -->
+                            <div class="instructions">
+                                <h2>Welcome to my trivia game!</h2>
+                                <ul>
+                                    <li>Click start to begin</li>
+                                    <li>You will be given 10 questions to answer</li>
+                                    <li>Answer as many as you can in within the time limit</li>
+                                    <li>There is only one correct answer, and you may only choose one</li>
+                                    <li><h3>Good Luck!</h3></li>
+                                </ul>
+                                <button type="button" name="start" class="btn btn-default">Start</button>
+                            </div>
+                            <!-- show after game starts hide after answers submited -->
+                            <div class="time-display">
+                                <span><h1>Time:</h1></span>
+                                <span><h1 class=countdown>placeholder</h1></span>
+                            </div>
+                            <!-- show after answers submited -->
+                            <div class="results-display">
+                                <div>
+                                    <span><h1>Correct answers: </h1></span>
+                                    <span><h1 class="correct-display">placeholder</h1></span>
+                                </div>
+                                <div>
+                                    <span><h1>Incorrect answers: </h1></span>
+                                    <span><h1 class="incorrect-display">placeholder</h1></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- show after game starts, hide after answers submited -->
+            <div class="questionaire">
+                <div class="row">
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            <div class="quesionaire-display">
+                                <!-- dynamically create questions and radio buttons -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="game-display">
-                        <div class="question-display">
-                            <span>question placeholder</span>
-                        </div>
-                        <div class="answer-display">
-                            <span><input type="radio" name="optradio"><span id="option 1"></span><span>placeholder</span>
-                            <span><input type="radio" name="optradio"><span id="option 2"></span><span>placeholder</span>
-                            <span><input type="radio" name="optradio"><span id="option 3"></span><span>placeholder</span>
-                            <span><button type="button" name="button">Submit</button></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-            <!-- hide after timer is done -->
-                <!-- instructions -->
-                <!-- timer -->
-                <!-- questions -->
-            <!-- show after timer is done -->
-                <!-- score -->
         <!-- app.js -->
-        <script src="assets/javascript/app.js" charset="utf-8"></script>
+        <script src="assets/javascript/app3.js" charset="utf-8"></script>
     </body>
 </html>
