@@ -61,8 +61,8 @@ function renderQuestionaire() {
         var $questions = $("<div class='question" + i + "'>");
         $questions.html(questions[i].question);
         $('.quesionaire-display').append($questions);
-        // var $form = $('<form class="responses'+i+'">');
-        // $('.question'+i).append($form);
+        var $form = $('<form class="responses'+i+'">');
+        $('.question'+i).append($form);
 
         // loop to make choices
         for (var j = 0; j < questions[i].choices.length; j++) {
