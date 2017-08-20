@@ -43,4 +43,4 @@ function mainLoop() {
     }
 }
 
-mainLoopInterval = setInterval(mainLoop, 100);
+mainLoopInterval = setInterval(mainLoop, 1000);

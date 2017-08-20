@@ -7,6 +7,7 @@ var choice;
 var correct;
 var gameStarted = false;
 var myTimer;
+var gameOver;
 
 // what we need to do
 
@@ -20,9 +21,9 @@ if(!gameStarted) {
     });
 }
 
-// click start button
+// click start button to start game
 $('.btn[name=start]').click(function() {
-    $('.instructions').hide();
+    $('.instructions').empty();
     // show questions and response options
     $('.questionaire').show();
     renderQuestionaire();
@@ -39,26 +40,58 @@ function countdown() {
     $('.countdown').text(timeRemaining);
     if (timeRemaining <= 0) {
         clearInterval(myTimer);
+        gameOver = true;
+    }
+    if (gameOver) {
+        endGame();
     }
 }
 
 // dynamically create questions and choices and submit button
 
 
-// Initial list of questions in other file
-// Initial array of movies
-var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+// Initial list of questions in other file questionList.js
 
 // Function for displaying movie data
+
 function renderQuestionaire() {
-    for(var i = 0; i < questions.length; i++) {
-        var $questions = $("<div class='question'>");
+    var i;
+    // loop to make questions
+    for(i = 0; i < questions.length; i++) {
+        var $questions = $("<div class='question" + i + "'>");
         $questions.html(questions[i].question);
         $('.quesionaire-display').append($questions);
+        // var $form = $('<form class="responses'+i+'">');
+        // $('.question'+i).append($form);
+
+        // loop to make choices
+        for (var j = 0; j < questions[i].choices.length; j++) {
+
+
+            var $responses = $('<br><input type="radio" name="choice'+i+'"/><label>');
+            $responses.val(j)
+            $responses.html(questions[i].choices[j]);
+            $('.responses'+i).append($responses);
+        }
       }
 }
 
 // wait for end of timer or submit button
-// remove question
-// grade
-// show results results
+// end game
+    function endGame() {
+        $('.btn[name=submit]').click(function() {
+            // hide questions and responses
+            $('.questionaire').hide();
+
+            // check correct answers
+            // $("#_1234").prop("checked", true);
+            $('input[name=choices0]:checked', '.responses0').val()
+
+            // show results
+            ////////////////// need to make function ////////////////
+            renderResults();
+
+
+
+        });
+    }

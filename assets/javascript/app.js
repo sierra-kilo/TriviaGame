@@ -67,7 +67,8 @@ function nextQuestion() {
 // submit button
 var isRight = false;
 $('button').click(function() {
-    alert('clicked');
+    // get radio button that was clicked;
+
 });
 // update question display and answer display
 // update time display
