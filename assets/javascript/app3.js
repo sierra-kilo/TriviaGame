@@ -68,7 +68,7 @@ function renderQuestionaire() {
         for (var j = 0; j < questions[i].choices.length; j++) {
 
 
-            var $responses = $('<br><input type="radio" name="choice'+i+'"/><label>');
+            var $responses = $('<br><input type="radio" name="choice'+i+'"/><label><br>');
             $responses.val(j)
             $responses.html(questions[i].choices[j]);
             $('.responses'+i).append($responses);
