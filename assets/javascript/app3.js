@@ -1,7 +1,7 @@
 // variables we might needd
-var timeRemaining = 20+1;
-var correctAnswers;
-var incorrectAnswers;
+var timeRemaining = 60+1;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
 var questionList = [];
 var choice;
 var correct;
@@ -29,7 +29,7 @@ $('.btn[name=start]').click(function() {
     renderQuestionaire();
     // show and start countdown
     $('.time-display').show();
-    myTimer = setInterval(countdown, 100)
+    myTimer = setInterval(countdown, 1000)
     countdown();
 });
 
@@ -39,11 +39,8 @@ function countdown() {
     timeRemaining--;
     $('.countdown').text(timeRemaining);
     if (timeRemaining <= 0) {
-        clearInterval(myTimer);
-        gameOver = true;
-    }
-    if (gameOver) {
         endGame();
+        clearInterval(myTimer);
     }
 }
 
@@ -78,20 +75,46 @@ function renderQuestionaire() {
 
 // wait for end of timer or submit button
 // end game
-    function endGame() {
-        $('.btn[name=submit]').click(function() {
-            // hide questions and responses
-            $('.questionaire').hide();
 
-            // check correct answers
-            // $("#_1234").prop("checked", true);
-            $('input[name=choices0]:checked', '.responses0').val()
+$('.btn[name=submit]').click(function() {
+    // hide questions and responses
+    endGame();
+});
 
-            // show results
-            ////////////////// need to make function ////////////////
-            renderResults();
+function renderResults() {
+    $('.correct-display').text(correctAnswers);
+    $('.incorrect-display').text(incorrectAnswers);
+    $('.results-display').show();
+
+}
+
+function endGame() {
+    $('.questionaire').hide();
+    // check correct answers
+    // $("#_1234").prop("checked", true);
+    // $('input[name=choices0]:checked', '.responses0').val()
 
 
+    // testing
+    // $('form.responses0')[0].choice0.value
+    // $("[name=choice]:checked")
+    // $("input[name='choice"+1+"']:checked").val()
 
-        });
+    for (var i = 0; i < questions.length; i++) {
+        var userAnswer = $("input[name='choice"+i+"']:checked").val();
+        console.log(userAnswer);
+        if (userAnswer == questions[i].correct) {
+            correctAnswers++;
+            console.log(correctAnswers);
+        } else {
+            incorrectAnswers++;
+            console.log(incorrectAnswers);
+        }
     }
+
+    // show results
+    ////////////////// need to make function ////////////////
+    renderResults();
+    clearInterval(myTimer);
+    $('.time-display').hide();
+}
