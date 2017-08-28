@@ -1,5 +1,5 @@
 // variables we might needd
-var timeRemaining = 60+1;
+var timeRemaining = 100+1;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var questionList = [];
@@ -55,10 +55,10 @@ function renderQuestionaire() {
     var i;
     // loop to make questions
     for(i = 0; i < questions.length; i++) {
-        var $questions = $("<div class='question" + i + "'>");
+        var $questions = $("<br><div class='question question" + i + "'>");
         $questions.html(questions[i].question);
         $('.quesionaire-display').append($questions);
-        var $form = $('<form class="responses'+i+'">');
+        var $form = $('<form class="responses responses'+i+'">');
         $('.question'+i).append($form);
 
         // loop to make choices
